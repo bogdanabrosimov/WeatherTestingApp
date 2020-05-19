@@ -56,15 +56,23 @@
 		4E9E6D2D2473E9F10057353A /* WeatherTestingApp */ = {
 			isa = PBXGroup;
 			children = (
-				4E9E6D2E2473E9F10057353A /* AppDelegate.swift */,
-				4E9E6D302473E9F10057353A /* SceneDelegate.swift */,
+				4E9E6D422473EA010057353A /* Supporting */,
 				4E9E6D322473E9F10057353A /* ViewController.swift */,
 				4E9E6D342473E9F10057353A /* Main.storyboard */,
-				4E9E6D372473E9F30057353A /* Assets.xcassets */,
 				4E9E6D392473E9F30057353A /* LaunchScreen.storyboard */,
 				4E9E6D3C2473E9F30057353A /* Info.plist */,
 			);
 			path = WeatherTestingApp;
+			sourceTree = "<group>";
+		};
+		4E9E6D422473EA010057353A /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				4E9E6D2E2473E9F10057353A /* AppDelegate.swift */,
+				4E9E6D302473E9F10057353A /* SceneDelegate.swift */,
+				4E9E6D372473E9F30057353A /* Assets.xcassets */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
