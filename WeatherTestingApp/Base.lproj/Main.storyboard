@@ -60,6 +60,7 @@
                     <connections>
                         <outlet property="background" destination="8bC-Xf-vdC" id="Opk-ns-cOQ"/>
                         <outlet property="tempLabel" destination="QBl-Hq-URK" id="LRu-rh-1Ro"/>
+                        <outlet property="weatherCityLabel" destination="ht0-gF-Rex" id="hYz-jK-bWx"/>
                         <outlet property="weatherDescriptionLabel" destination="I8r-LZ-jQo" id="HRR-z8-PUw"/>
                         <outlet property="weatherImageView" destination="Lan-LT-hfm" id="ysH-q6-IGq"/>
                     </connections>
