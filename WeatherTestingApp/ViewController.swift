@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
-    //TODO: i need to make city label
     @IBOutlet weak var weatherCityLabel: UILabel!
     
     
@@ -23,7 +22,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //in URL i need to make \(city) to searching
         guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=riga&appid=3d967c3fffadce6f693fee6dbdccb80a"
             ) else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -31,8 +30,7 @@ class ViewController: UIViewController {
             do {
                 guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] else { return }
                 guard let weatherDetails = json["weather"] as? [[String : Any]], let weatherMain = json["main"] as? [String : Any],
-                    //MARK: ТУТ ТРАБЛЫ!
-                    let weatherDetailsName = json["coord"] as? [String : Any] else {return}
+                    let weatherDetailsName = json as? [String : Any] else {return}
                 let temp = Int(weatherMain["temp"] as? Double ?? 0)
                 let description = (weatherDetails.first?["description"] as? String)?.capitalizingFirstLetter()
                 let name = (weatherDetailsName["name"] as? String)
@@ -57,7 +55,7 @@ class ViewController: UIViewController {
         switch weather {
         case "Sunny":
             weatherImageView.image = UIImage(named: "sunny")
-            //backgroung
+            //backgroung changing night day
         
         default:
         weatherImageView.image = UIImage(named: "cloudy")
