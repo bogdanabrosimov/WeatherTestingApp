@@ -20,17 +20,21 @@ class ViewController: UIViewController {
     
     struct WeatherUrl : Decodable{
         //let main :String?
-        var name : String?
-        var main : WeatherMain?
-        var weather : weatherDesc?
+        var name : String
+        var main : WeatherMain
+        var weather : [WeatherDesc]
     }
     
-    struct WeatherDesc 
+    struct WeatherDesc : Decodable {
+        var main : String
+        var description : String
+        
+    }
     
     struct WeatherMain : Decodable{
         var temp: Double
     }
-    
+    // vse eto v interactor
     override func viewDidLoad() {
         super.viewDidLoad()
         //in URL i need to make \(city) to searching
