@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class WeatherViewController: UIViewController {
+    
+    var presenter : WeatherPresenter?
     
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var tempLabel: UILabel!
@@ -17,45 +18,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var weatherCityLabel: UILabel!
     
-    
-    struct WeatherUrl : Decodable{
-        var name : String
-        var main : WeatherMain
-        var weather : [WeatherDesc] = []
-    }
-    struct WeatherDesc : Decodable {
-        var description : String
-        var main : String
-    }
-    struct WeatherMain : Decodable{
-        var temp: Double
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //in URL i need to make \(city) to searching
-        urlCatching()
+        self.presenter = WeatherPresenter(controller : self)
+        
+        self.presenter?.getWeather()
     }
     // vse eto v interactor
-    func urlCatching() {
-        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=riga&appid=3d967c3fffadce6f693fee6dbdccb80a"
-            ) else { return }
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let data = data, error == nil {
-            do {
-                let weatherUrl = try JSONDecoder().decode(WeatherUrl.self, from : data)
-                DispatchQueue.main.async{
-                    self.weatherSet(name: weatherUrl.name, main: weatherUrl.weather[0].main,description: weatherUrl.weather[0].description, temp: Int(weatherUrl.main.temp))
-                }
-            }
-            catch{
-                    print("we had an error retrieving the weather...")
-                }
-            }
-        }
-        task.resume()
-    }
+ 
 
     //IT NEEDS TO BE HERE
     func weatherSet(name: String, main: String, description: String, temp: Int) {

@@ -8,15 +8,25 @@
 
 import Foundation
 
-struct WeatherUrl : Decodable{
-    var name : String
-    var main : WeatherMain
-    var weather : [WeatherDesc] = []
+class WeatherPresenter {
+    
+    let controller : WeatherViewController
+    let interactor : WeatherInteractor
+    
+    
+    init (controller: WeatherViewController, interactor: WeatherInteractor = WeatherInteractor()){
+        self.controller = controller
+        self.interactor = interactor
+    }
+    
+    func getWeather() {
+        self.interactor.fetchWeather(callback: {[weak self] weatherData in
+            self?.controller.weatherCityLabel.text = weatherData.name
+            self?.controller.weatherDescriptionLabel.text = weatherData.weather[0].description
+            
+            
+        })
+        }
 }
-struct WeatherDesc : Decodable {
-    var description : String
-    var main : String
-}
-struct WeatherMain : Decodable{
-    var temp: Double
-}
+    
+
