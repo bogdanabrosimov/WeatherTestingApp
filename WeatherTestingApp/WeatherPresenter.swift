@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct WeatherUrl : Decodable{
+    var name : String
+    var main : WeatherMain
+    var weather : [WeatherDesc] = []
+}
+struct WeatherDesc : Decodable {
+    var description : String
+    var main : String
+}
+struct WeatherMain : Decodable{
+    var temp: Double
+}

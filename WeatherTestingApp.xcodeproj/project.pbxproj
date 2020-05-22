@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0527C22477EB56004BB054 /* WeatherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0527C12477EB56004BB054 /* WeatherExtensions.swift */; };
 		4E9E6D2F2473E9F10057353A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E6D2E2473E9F10057353A /* AppDelegate.swift */; };
 		4E9E6D312473E9F10057353A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E6D302473E9F10057353A /* SceneDelegate.swift */; };
 		4E9E6D332473E9F10057353A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E6D322473E9F10057353A /* WeatherViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E0527C12477EB56004BB054 /* WeatherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtensions.swift; sourceTree = "<group>"; };
 		4E9E6D2B2473E9F10057353A /* WeatherTestingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherTestingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9E6D2E2473E9F10057353A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E9E6D302473E9F10057353A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				4E9E6D2E2473E9F10057353A /* AppDelegate.swift */,
 				4E9E6D302473E9F10057353A /* SceneDelegate.swift */,
 				4E9E6D372473E9F30057353A /* Assets.xcassets */,
+				4E0527C12477EB56004BB054 /* WeatherExtensions.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				4E9E6D332473E9F10057353A /* WeatherViewController.swift in Sources */,
 				4E9E6D44247572E20057353A /* WeatherInteractor.swift in Sources */,
 				4E9E6D2F2473E9F10057353A /* AppDelegate.swift in Sources */,
+				4E0527C22477EB56004BB054 /* WeatherExtensions.swift in Sources */,
 				4E9E6D312473E9F10057353A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

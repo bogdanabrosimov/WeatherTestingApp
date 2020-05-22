@@ -31,10 +31,14 @@ class ViewController: UIViewController {
         var temp: Double
     }
     
-    // vse eto v interactor
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //in URL i need to make \(city) to searching
+        urlCatching()
+    }
+    // vse eto v interactor
+    func urlCatching() {
         guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=riga&appid=3d967c3fffadce6f693fee6dbdccb80a"
             ) else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -52,7 +56,6 @@ class ViewController: UIViewController {
         }
         task.resume()
     }
-    
 
     //IT NEEDS TO BE HERE
     func weatherSet(name: String, main: String, description: String, temp: Int) {
@@ -77,12 +80,6 @@ class ViewController: UIViewController {
             default:
                 weatherImageView.image = UIImage(named: "cloudy")
         }
-    }
-}
-//MOVE TO ANOTHER FILE
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).uppercased() + self.lowercased().dropFirst()
     }
 }
 
