@@ -11,7 +11,7 @@ import Foundation
 class WeatherInteractor {
     
     func fetchWeather(callback: @escaping (WeatherData) -> Void) {
-        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=riga&appid=3d967c3fffadce6f693fee6dbdccb80a"
+        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=cleveland&appid=3d967c3fffadce6f693fee6dbdccb80a"
             ) else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data, error == nil {
@@ -20,7 +20,6 @@ class WeatherInteractor {
                     DispatchQueue.main.async {
                         callback(weatherData)
                     }
-                    
                 }
                 catch{
                     print("we had an error retrieving the weather...")

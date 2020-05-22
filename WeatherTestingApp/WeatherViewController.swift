@@ -21,35 +21,7 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = WeatherPresenter(controller : self)
-        
         self.presenter?.getWeather()
-    }
-    // vse eto v interactor
- 
-
-    //IT NEEDS TO BE HERE
-    func weatherSet(name: String, main: String, description: String, temp: Int) {
-        // here weather conditions icons help https://openeathermap.org/weather-conditions
-        weatherDescriptionLabel.text = description.capitalizingFirstLetter()
-            weatherCityLabel.text = name
-            tempLabel.text = "\(temp-273)º"
-        switch main {
-            case "Clear":
-                weatherImageView.image = UIImage(named: "sunny")
-                //backgroung changing night day
-            case "Clouds":
-                weatherImageView.image = UIImage(named: "cloudy")
-            case "Snow":
-                weatherImageView.image = UIImage(named: "cloudy")
-            case "Rain":
-                weatherImageView.image = UIImage(named: "cloudy")
-            case "Drizzle":
-                weatherImageView.image = UIImage(named: "cloudy")
-            case "Thunderstorm":
-                weatherImageView.image = UIImage(named: "cloudy")
-            default:
-                weatherImageView.image = UIImage(named: "cloudy")
-        }
     }
 }
 

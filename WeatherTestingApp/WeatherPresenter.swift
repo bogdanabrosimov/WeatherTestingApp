@@ -7,6 +7,9 @@
 //
 
 import Foundation
+//MARK: UIKit
+import UIKit
+
 
 class WeatherPresenter {
     
@@ -22,9 +25,27 @@ class WeatherPresenter {
     func getWeather() {
         self.interactor.fetchWeather(callback: {[weak self] weatherData in
             self?.controller.weatherCityLabel.text = weatherData.name
-            self?.controller.weatherDescriptionLabel.text = weatherData.weather[0].description
+            self?.controller.weatherDescriptionLabel.text = weatherData.weather[0].description.capitalizingFirstLetter()
+            self?.controller.tempLabel.text = "\(Int(weatherData.main.temp-273))º"
             
-            
+            //MARK: Here is trouble I use UIKit here because I cant make it work without it
+            switch weatherData.weather[0].main {
+                case "Clear":
+                    self?.controller.weatherImageView.image = UIImage(named: "sunny")
+                    //backgroung changing night day
+                case "Clouds":
+                    self?.controller.weatherImageView.image = UIImage(named: "cloudy")
+                case "Snow":
+                    self?.controller.weatherImageView.image = UIImage(named: "snow")
+                case "Rain":
+                    self?.controller.weatherImageView.image = UIImage(named: "rainy")
+                case "Drizzle":
+                    self?.controller.weatherImageView.image = UIImage(named: "drizzle")
+                case "Thunderstorm":
+                    self?.controller.weatherImageView.image = UIImage(named: "thunderstorm")
+                default:
+                    self?.controller.weatherImageView.image = UIImage(named: "cloudy")
+            }
         })
         }
 }
