@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//MARK: UIKit
 import UIKit
 
 
@@ -28,7 +27,6 @@ class WeatherPresenter {
             self?.controller.weatherDescriptionLabel.text = weatherData.weather[0].description.capitalizingFirstLetter()
             self?.controller.tempLabel.text = "\(Int(weatherData.main.temp-273))º"
             
-            //MARK: Here is trouble I use UIKit here because I cant make it work without it
             switch weatherData.weather[0].main {
                 case "Clear":
                     self?.controller.weatherImageView.image = UIImage(named: "sunny")
